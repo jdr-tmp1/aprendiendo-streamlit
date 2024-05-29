@@ -21,7 +21,18 @@ data = pd.read_csv(file_path)
 st.write(data.columns.tolist())
 
 # Group the data by 'Year' and count the number of movies per year
-movie_counts_by_year = data.groupby('Year').size()
+#movie_counts_by_year = data.groupby('Year').size()
+
+# Crear un slider para seleccionar el rango de años
+year_min = int(data['Year'].min())
+year_max = int(data['Year'].max())
+years = st.slider('Selecciona el rango de años', year_min, year_max, (year_min, year_max))
+
+# Filtrar los datos por el rango de años seleccionado
+filtered_data = data[(data['Year'] >= years[0]) & (data['Year'] <= years[1])]
+
+# Agrupar los datos filtrados por 'Year' y contar el número de películas por año
+movie_counts_by_year = filtered_data.groupby('Year').size()
 
 # Plotting the data
 plt.figure(figsize=(12, 6))
