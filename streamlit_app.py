@@ -19,3 +19,15 @@ data = pd.read_csv(file_path)
 # Display the columns in the file
 st.write(data.columns.tolist())
 
+# Group the data by 'Year' and count the number of movies per year
+movie_counts_by_year = data.groupby('Year').size()
+
+# Plotting the data
+plt.figure(figsize=(12, 6))
+movie_counts_by_year.plot(kind='bar', color='skyblue')
+plt.title('Número de Películas por Año')
+plt.xlabel('Año')
+plt.ylabel('Número de Películas')
+plt.grid(True)
+plt.show()
+
