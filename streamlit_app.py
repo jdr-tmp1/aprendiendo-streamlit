@@ -14,9 +14,3 @@ In the meantime, below is an example of what you can do with just a few lines of
 """
 
 
-# Load the CSV file to check its columns
-file_path = 'peliculas.csv'
-data = pd.read_csv(file_path)
-
-# Display the columns in the file
-data.columns.tolist()
