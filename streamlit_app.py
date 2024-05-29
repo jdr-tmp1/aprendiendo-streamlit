@@ -32,3 +32,5 @@ plt.ylabel('Número de Películas')
 plt.grid(True)
 plt.show()
 
+st.pyplot(plt)
+
